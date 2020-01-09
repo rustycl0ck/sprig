@@ -36,6 +36,16 @@ func TestAdler32Sum(t *testing.T) {
 	}
 }
 
+func TestHtpasswd(t *testing.T) {
+	tpl := `{{htpasswd "testuser" "myPassword"}}`
+	err := runt(tpl, "38600999")
+	fmt.Println(err)
+	if err != nil {
+		t.Error(err)
+	}
+
+}
+
 func TestDerivePassword(t *testing.T) {
 	expectations := map[string]string{
 		`{{derivePassword 1 "long" "password" "user" "example.com"}}`:    "ZedaFaxcZaso9*",

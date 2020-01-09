@@ -29,6 +29,16 @@ The `adler32sum` function receives a string, and computes its Adler-32 checksum.
 adler32sum "Hello world!"
 ```
 
+## htpasswd
+
+The `htpasswd` function takes a `username` and a `password` and encrypts the password with `bcrypt` so that the result can be used for [basic authentication](https://httpd.apache.org/docs/2.4/misc/password_encryptions.html#basic) on an Apache HTTP Server.
+
+```
+htpasswd "myUser" "myPassword"
+```
+
+Note that it is insecure to store the password directly in the template.
+
 ## derivePassword
 
 The `derivePassword` function can be used to derive a specific password based on
